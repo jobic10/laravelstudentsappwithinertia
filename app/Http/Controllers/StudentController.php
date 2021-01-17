@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Student;
 class StudentController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        return Student::all();
     }
 
     /**
@@ -24,7 +24,17 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'full_name' => 'required',
+            'course' => 'required',
+            'date_of_enrollment' => 'required|date'
+        ]);
+        $student = new Student();
+        $student->full_name = $request->full_name;
+        $student->date_of_enrollment = $request->date_of_enrollment;
+        $student->date_of_course = $request->course;
+        $student->save();
+        return response('Student Created', 201);
     }
 
     /**
@@ -35,7 +45,7 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        return Student::find($id);
     }
 
     /**
@@ -47,7 +57,18 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request, [
+            'full_name' => 'required',
+            'course' => 'required',
+            'date_of_enrollment' => 'required|date'
+        ]);
+        $student = Student::find($id);
+        $student->full_name = $request->full_name;
+        $student->date_of_enrollment = $request->date_of_enrollment;
+        $student->date_of_course = $request->course;
+        $student->save();
+        return response('Student Updated', 200);
     }
 
     /**
@@ -58,6 +79,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Student::find($id)->delete();
+        return response('Student Deleted', 200);
+
     }
 }
