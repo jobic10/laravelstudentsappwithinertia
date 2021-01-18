@@ -5216,19 +5216,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -34358,7 +34345,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                Name\n              "
+                                          "\n                Full Name\n              "
                                         )
                                       ]
                                     ),
@@ -34372,7 +34359,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                Title\n              "
+                                          "\n                Course\n              "
                                         )
                                       ]
                                     ),
@@ -34386,7 +34373,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                Status\n              "
+                                          "\n                Date of Enrollment\n              "
                                         )
                                       ]
                                     ),
@@ -34400,21 +34387,8 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                Role\n              "
+                                          "\n                Actions\n              "
                                         )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "th",
-                                      {
-                                        staticClass: "relative px-6 py-3",
-                                        attrs: { scope: "col" }
-                                      },
-                                      [
-                                        _c("span", { staticClass: "sr-only" }, [
-                                          _vm._v("Edit")
-                                        ])
                                       ]
                                     )
                                   ])
@@ -34443,25 +34417,6 @@ var render = function() {
                                             [
                                               _c(
                                                 "div",
-                                                {
-                                                  staticClass:
-                                                    "flex-shrink-0 h-10 w-10"
-                                                },
-                                                [
-                                                  _c("img", {
-                                                    staticClass:
-                                                      "h-10 w-10 rounded-full",
-                                                    attrs: {
-                                                      src:
-                                                        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
-                                                      alt: ""
-                                                    }
-                                                  })
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "div",
                                                 { staticClass: "ml-4" },
                                                 [
                                                   _c(
@@ -34472,20 +34427,7 @@ var render = function() {
                                                     },
                                                     [
                                                       _vm._v(
-                                                        "\n                      Jane Cooper\n                    "
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "text-sm text-gray-500"
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                      jane.cooper@example.com\n                    "
+                                                        "\n                      Owonubi Elizabeth\n                    "
                                                       )
                                                     ]
                                                   )
@@ -34509,20 +34451,7 @@ var render = function() {
                                               staticClass:
                                                 "text-sm text-gray-900"
                                             },
-                                            [
-                                              _vm._v(
-                                                "Regional Paradigm Technician"
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "text-sm text-gray-500"
-                                            },
-                                            [_vm._v("Optimization")]
+                                            [_vm._v("Computer Science")]
                                           )
                                         ]
                                       ),
@@ -34535,29 +34464,12 @@ var render = function() {
                                         },
                                         [
                                           _c(
-                                            "span",
+                                            "div",
                                             {
                                               staticClass:
-                                                "px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                                                "text-sm text-gray-900"
                                             },
-                                            [
-                                              _vm._v(
-                                                "\n                  Active\n                "
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "td",
-                                        {
-                                          staticClass:
-                                            "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                Admin\n              "
+                                            [_vm._v("31-03-2020")]
                                           )
                                         ]
                                       ),
