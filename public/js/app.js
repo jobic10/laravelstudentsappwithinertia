@@ -5224,6 +5224,97 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -52249,261 +52340,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* binding */ render,
 /* harmony export */   "staticRenderFns": () => /* binding */ staticRenderFns
 /* harmony export */ });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "app-layout",
-    {
-      scopedSlots: _vm._u([
-        {
-          key: "header",
-          fn: function() {
-            return [
-              _c(
-                "h2",
-                {
-                  staticClass:
-                    "font-semibold text-xl text-gray-800 leading-tight"
-                },
-                [_vm._v("\n                Students\n            ")]
-              )
-            ]
-          },
-          proxy: true
-        },
-        {
-          key: "footer",
-          fn: function() {
-            return [
-              _c("div", [
-                _c("button", { staticClass: "btn btn-primary" }, [
-                  _vm._v("Hello "),
-                  _c("span", { staticClass: "badge badge-primary" }, [
-                    _vm._v("World")
-                  ])
-                ])
-              ])
-            ]
-          },
-          proxy: true
-        }
-      ])
-    },
-    [
-      _vm._v(" "),
-      _c("div", { staticClass: "py-12" }, [
-        _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
-          _c(
-            "div",
-            { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
-            [
-              _c("div", { staticClass: "flex flex-col" }, [
-                _c(
-                  "div",
-                  { staticClass: "-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8" },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
-                          },
-                          [
-                            _c(
-                              "table",
-                              {
-                                staticClass:
-                                  "min-w-full divide-y divide-gray-200"
-                              },
-                              [
-                                _c("thead", { staticClass: "bg-gray-50" }, [
-                                  _c("tr", [
-                                    _c(
-                                      "th",
-                                      {
-                                        staticClass:
-                                          "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
-                                        attrs: { scope: "col" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                Full Name\n              "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "th",
-                                      {
-                                        staticClass:
-                                          "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
-                                        attrs: { scope: "col" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                Course\n              "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "th",
-                                      {
-                                        staticClass:
-                                          "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
-                                        attrs: { scope: "col" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                Date of Enrollment\n              "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "th",
-                                      {
-                                        staticClass:
-                                          "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
-                                        attrs: { scope: "col" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                Actions\n              "
-                                        )
-                                      ]
-                                    )
-                                  ])
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "tbody",
-                                  {
-                                    staticClass:
-                                      "bg-white divide-y divide-gray-200"
-                                  },
-                                  [
-                                    _c("tr", [
-                                      _c(
-                                        "td",
-                                        {
-                                          staticClass:
-                                            "px-6 py-4 whitespace-nowrap"
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "flex items-center"
-                                            },
-                                            [
-                                              _c(
-                                                "div",
-                                                { staticClass: "ml-4" },
-                                                [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "text-sm font-medium text-gray-900"
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                      Owonubi Elizabeth\n                    "
-                                                      )
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "td",
-                                        {
-                                          staticClass:
-                                            "px-6 py-4 whitespace-nowrap"
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "text-sm text-gray-900"
-                                            },
-                                            [_vm._v("Computer Science")]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "td",
-                                        {
-                                          staticClass:
-                                            "px-6 py-4 whitespace-nowrap"
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "text-sm text-gray-900"
-                                            },
-                                            [_vm._v("31-03-2020")]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "td",
-                                        {
-                                          staticClass:
-                                            "px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
-                                        },
-                                        [
-                                          _c(
-                                            "a",
-                                            {
-                                              staticClass:
-                                                "text-indigo-600 hover:text-indigo-900",
-                                              attrs: { href: "#" }
-                                            },
-                                            [_vm._v("Edit")]
-                                          )
-                                        ]
-                                      )
-                                    ])
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ])
-            ]
-          )
-        ])
-      ])
-    ]
-  )
-}
+var render = function () {}
 var staticRenderFns = []
-render._withStripped = true
 
 
 
