@@ -229,6 +229,9 @@
                 <slot></slot>
             </main>
 
+            <footer class="flex items-center">
+            <slot name="footer"></slot>
+            </footer>
             <!-- Modal Portal -->
             <portal-target name="modal" multiple>
             </portal-target>

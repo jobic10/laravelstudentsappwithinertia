@@ -66,6 +66,11 @@
                 </div>
             </div>
         </div>
+        <template #footer>
+            <div>
+    <button class="btn btn-primary">Hello <span class="badge badge-primary">World</span></button>
+            </div>
+        </template>
     </app-layout>
 </template>
 
