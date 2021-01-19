@@ -33,21 +33,21 @@
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
+            <tr v-for='student in students' :key="student.id">
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="flex items-center">
                   <div class="ml-4">
                     <div class="text-sm font-medium text-gray-900">
-                      Owonubi Elizabeth
+                      {{ student.full_name }}
                     </div>
                   </div>
                 </div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm text-gray-900">Computer Science</div>
+                <div class="text-sm text-gray-900">{{ student.course }}</div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm text-gray-900">31-03-2020</div>
+                <div class="text-sm text-gray-900">{{ student.date }}</div>
               </td>
 
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -85,7 +85,7 @@
                         </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <form @submit.prevent='addStudent'>
+                        <form id='studentForm' @submit.prevent='addStudent'>
                             <div class="form-group">
                               <label for="full_name">Full Name</label>
                               <input type="text"
@@ -100,8 +100,8 @@
                             </div>
                             <div class="form-group">
                               <label for="course">Course</label>
-                              <select multiple class="form-control" v-model="student.course" name="course" id="course">
-                                <option value="">-</option>
+                              <select class="form-control" v-model="student.course" name="course" id="course">
+                                <option :value="course.course_name" v-for='course in courses' :key='course.id'>{{ course.course_name }}</option>
                               </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -133,11 +133,11 @@
                         </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <form @submit.prevent='addCourse'>
+                        <form id='courseForm' @submit.prevent='addCourse'>
                                 <div class="form-group">
                               <label for="name">Course Name</label>
                               <input type="text"
-                                class="form-control" v-model='course.name' name="name" id="name" aria-describedby="helpId" placeholder="Full Name">
+                                class="form-control" v-model='course.course_name' name="name" id="name" aria-describedby="helpId" placeholder="Full Name">
                               <small id="helpId" class="form-text text-muted">Course name.</small>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -152,14 +152,6 @@
         </div>
     </div>
 
-    <script>
-        $('#exampleModal').on('show.bs.modal', event => {
-            var button = $(event.relatedTarget);
-            var modal = $(this);
-            // Use above variables to manipulate the DOM
-
-        });
-    </script>
             </div>
         </template>
     </app-layout>
@@ -174,5 +166,51 @@
             AppLayout,
             Welcome,
         },
+        data(){
+           return {
+                students: [],
+                    student:
+                    {
+                        full_name:'',
+                        course:'',
+                        date:''
+                    },
+                    courses: [],
+                    course:{
+                        course_name:''
+                    }
+           }
+        },
+        methods: {
+            async addStudent(){
+                const res = await axios.post('api/students',this.student);
+                if (res.status === 201){
+                    Toast.fire({
+                        icon: 'success',
+                        title: res.data
+                    });
+                }
+            },
+            async addCourse(){
+                 const res = await axios.post('api/courses',this.course);
+                if (res.status === 201){
+                    Toast.fire({
+                        icon: 'success',
+                        title: res.data
+                    });
+                }
+            },
+            getStudents(){
+                axios.get('api/students')
+                .then((res)=>this.students = res.data)
+                .catch((err) => {console.log(err)});
+            },
+            getCourses(){
+                    axios.get('api/courses')
+                .then((res)=>this.courses = res.data)
+                .catch((err) => {console.log(err)});
+            },
+
+        }
     }
 </script>

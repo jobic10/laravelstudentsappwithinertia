@@ -8,7 +8,13 @@ import PortalVue from 'portal-vue';
 Vue.mixin({ methods: { route } });
 Vue.use(InertiaPlugin);
 Vue.use(PortalVue);
-
+const Swal = require('sweetalert2').default;
+window.Toast = Swal.mixin({
+    toast: true,
+  position: 'top-right',
+  timer: 3500,
+  timerProgressBar: true
+});
 const app = document.getElementById('app');
 
 new Vue({
