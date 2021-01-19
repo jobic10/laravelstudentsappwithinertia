@@ -47,7 +47,7 @@
                 <div class="text-sm text-gray-900">{{ student.course }}</div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm text-gray-900">{{ student.date }}</div>
+                <div class="text-sm text-gray-900">{{ student.date_of_enrollment }}</div>
               </td>
 
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -90,12 +90,12 @@
                               <label for="full_name">Full Name</label>
                               <input type="text"
                                 class="form-control" v-model='student.full_name' name="full_name" id="full_name" aria-describedby="helpId" placeholder="Full Name">
-                              <small id="helpId" class="form-text text-muted">Surname first.</small>
+                              <small class="form-text text-muted">Surname first.</small>
                             </div>
                             <div class="form-group">
                               <label for="date">Enrollment</label>
                               <input type="date"
-                                class="form-control" v-model="student.date" name="date" id="date" aria-describedby="dateHelp" placeholder="Date of enrollment">
+                                class="form-control" v-model="student.date_of_enrollment" name="date_of_enrollment" id="date_of_enrollment" aria-describedby="dateHelp" placeholder="Date of enrollment">
                               <small id="dateHelp" class="form-text text-muted">Date of enrollment</small>
                             </div>
                             <div class="form-group">
@@ -137,8 +137,8 @@
                                 <div class="form-group">
                               <label for="name">Course Name</label>
                               <input type="text"
-                                class="form-control" v-model='course.course_name' name="name" id="name" aria-describedby="helpId" placeholder="Full Name">
-                              <small id="helpId" class="form-text text-muted">Course name.</small>
+                                class="form-control" v-model='course.course_name' name="name" aria-describedby="helpId" placeholder="Full Name">
+                              <small class="form-text text-muted">Course name.</small>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -173,7 +173,7 @@
                     {
                         full_name:'',
                         course:'',
-                        date:''
+                        date_of_enrollment:''
                     },
                     courses: [],
                     course:{
@@ -189,28 +189,41 @@
                         icon: 'success',
                         title: res.data
                     });
+                    Fire.$emit('studentAdded');
+                    document.getElementById('studentForm').reset();
+                    $('#addStudent').modal('hide');
                 }
             },
             async addCourse(){
                  const res = await axios.post('api/courses',this.course);
+                  console.log(res);
                 if (res.status === 201){
                     Toast.fire({
                         icon: 'success',
                         title: res.data
                     });
-                }
+                    Fire.$emit('courseAdded');
+                    document.getElementById('courseForm').reset();
+                    $('#addCourse').modal('hide');
+               }
             },
-            getStudents(){
-                axios.get('api/students')
-                .then((res)=>this.students = res.data)
+              getStudents(){
+               axios.get('api/students')
+                .then((res)=>{this.students = res.data})
                 .catch((err) => {console.log(err)});
             },
             getCourses(){
-                    axios.get('api/courses')
-                .then((res)=>this.courses = res.data)
+                axios.get('api/courses')
+                .then((res)=>{this.courses = res.data})
                 .catch((err) => {console.log(err)});
             },
 
+        },
+        created(){
+          this.getCourses();
+          this.getStudents();
+          Fire.$on('courseAdded', ()=>{this.getCourses();});
+          Fire.$on('studentAdded', ()=>{this.getStudents();});
         }
     }
 </script>
