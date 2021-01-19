@@ -5339,7 +5339,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       student: {
         full_name: '',
         course: '',
-        date: ''
+        date_of_enrollment: ''
       },
       courses: [],
       course: {
@@ -5368,6 +5368,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     icon: 'success',
                     title: res.data
                   });
+                  Fire.$emit('studentAdded');
+                  document.getElementById('studentForm').reset();
+                  $('#addStudent').modal('hide');
                 }
 
               case 4:
@@ -5392,15 +5395,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 res = _context2.sent;
+                console.log(res);
 
                 if (res.status === 201) {
                   Toast.fire({
                     icon: 'success',
                     title: res.data
                   });
+                  Fire.$emit('courseAdded');
+                  document.getElementById('courseForm').reset();
+                  $('#addCourse').modal('hide');
                 }
 
-              case 4:
+              case 5:
               case "end":
                 return _context2.stop();
             }
@@ -5412,7 +5419,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this3 = this;
 
       axios.get('api/students').then(function (res) {
-        return _this3.students = res.data;
+        _this3.students = res.data;
       })["catch"](function (err) {
         console.log(err);
       });
@@ -5421,11 +5428,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this4 = this;
 
       axios.get('api/courses').then(function (res) {
-        return _this4.courses = res.data;
+        _this4.courses = res.data;
       })["catch"](function (err) {
         console.log(err);
       });
     }
+  },
+  created: function created() {
+    var _this5 = this;
+
+    this.getCourses();
+    this.getStudents();
+    Fire.$on('courseAdded', function () {
+      _this5.getCourses();
+    });
+    Fire.$on('studentAdded', function () {
+      _this5.getStudents();
+    });
   }
 });
 
@@ -5699,6 +5718,7 @@ window.Toast = Swal.mixin({
   timer: 3500,
   timerProgressBar: true
 });
+window.Fire = new vue__WEBPACK_IMPORTED_MODULE_2__.default();
 var app = document.getElementById('app');
 new vue__WEBPACK_IMPORTED_MODULE_2__.default({
   render: function render(h) {
@@ -56943,6 +56963,7 @@ var render = function() {
                               _c(
                                 "form",
                                 {
+                                  attrs: { id: "studentForm" },
                                   on: {
                                     submit: function($event) {
                                       $event.preventDefault()
@@ -56994,10 +57015,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _c(
                                       "small",
-                                      {
-                                        staticClass: "form-text text-muted",
-                                        attrs: { id: "helpId" }
-                                      },
+                                      { staticClass: "form-text text-muted" },
                                       [_vm._v("Surname first.")]
                                     )
                                   ]),
@@ -57012,19 +57030,22 @@ var render = function() {
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.student.date,
-                                          expression: "student.date"
+                                          value: _vm.student.date_of_enrollment,
+                                          expression:
+                                            "student.date_of_enrollment"
                                         }
                                       ],
                                       staticClass: "form-control",
                                       attrs: {
                                         type: "date",
-                                        name: "date",
-                                        id: "date",
+                                        name: "date_of_enrollment",
+                                        id: "date_of_enrollment",
                                         "aria-describedby": "dateHelp",
                                         placeholder: "Date of enrollment"
                                       },
-                                      domProps: { value: _vm.student.date },
+                                      domProps: {
+                                        value: _vm.student.date_of_enrollment
+                                      },
                                       on: {
                                         input: function($event) {
                                           if ($event.target.composing) {
@@ -57032,7 +57053,7 @@ var render = function() {
                                           }
                                           _vm.$set(
                                             _vm.student,
-                                            "date",
+                                            "date_of_enrollment",
                                             $event.target.value
                                           )
                                         }
@@ -57191,6 +57212,7 @@ var render = function() {
                               _c(
                                 "form",
                                 {
+                                  attrs: { id: "courseForm" },
                                   on: {
                                     submit: function($event) {
                                       $event.preventDefault()
@@ -57217,7 +57239,6 @@ var render = function() {
                                       attrs: {
                                         type: "text",
                                         name: "name",
-                                        id: "name",
                                         "aria-describedby": "helpId",
                                         placeholder: "Full Name"
                                       },
@@ -57240,10 +57261,7 @@ var render = function() {
                                     _vm._v(" "),
                                     _c(
                                       "small",
-                                      {
-                                        staticClass: "form-text text-muted",
-                                        attrs: { id: "helpId" }
-                                      },
+                                      { staticClass: "form-text text-muted" },
                                       [_vm._v("Course name.")]
                                     )
                                   ]),
@@ -57445,7 +57463,13 @@ var render = function() {
                                               staticClass:
                                                 "text-sm text-gray-900"
                                             },
-                                            [_vm._v(_vm._s(student.date))]
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  student.date_of_enrollment
+                                                )
+                                              )
+                                            ]
                                           )
                                         ]
                                       ),
