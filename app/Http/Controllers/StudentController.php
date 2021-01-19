@@ -32,7 +32,7 @@ class StudentController extends Controller
         $student = new Student();
         $student->full_name = $request->full_name;
         $student->date_of_enrollment = $request->date_of_enrollment;
-        $student->date_of_course = $request->course;
+        $student->course = $request->course;
         $student->save();
         return response('Student Created', 201);
     }
@@ -66,7 +66,7 @@ class StudentController extends Controller
         $student = Student::find($id);
         $student->full_name = $request->full_name;
         $student->date_of_enrollment = $request->date_of_enrollment;
-        $student->date_of_course = $request->course;
+        $student->course = $request->course;
         $student->save();
         return response('Student Updated', 200);
     }
