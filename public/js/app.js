@@ -56935,7 +56935,7 @@ var render = function() {
                         _c("div", { staticClass: "modal-content" }, [
                           _c("div", { staticClass: "modal-header" }, [
                             _c("h5", { staticClass: "modal-title" }, [
-                              _vm._v("Modal title")
+                              _vm._v("Add Student")
                             ]),
                             _vm._v(" "),
                             _c(
@@ -57184,7 +57184,7 @@ var render = function() {
                         _c("div", { staticClass: "modal-content" }, [
                           _c("div", { staticClass: "modal-header" }, [
                             _c("h5", { staticClass: "modal-title" }, [
-                              _vm._v("Modal title")
+                              _vm._v("Add Course")
                             ]),
                             _vm._v(" "),
                             _c(
